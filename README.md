@@ -50,9 +50,11 @@ Cline支持多种平台：
 
 #### 配置Cline使用Weather服务器
 
+Cline的MCP服务器配置是在Cline的交互界面中设置的，而不是通过外部配置文件。
+
 1. **在Cline中配置MCP服务器**：
-   - 打开Cline设置
-   - 找到MCP服务器配置部分
+   - 打开Cline
+   - 在交互界面中配置MCP服务器
    - 添加weather服务器配置
 
 2. **配置示例**：
@@ -60,10 +62,13 @@ Cline支持多种平台：
    {
      "mcpServers": {
        "weather": {
+         "disabled": false,
+         "timeout": 60,
+         "type": "stdio",
          "command": "uv",
          "args": [
            "--directory",
-           "/path/to/weather/project",
+           "D:/AgentsDEV/mcp-test/weather",
            "run",
            "weather.py"
          ]
@@ -87,6 +92,12 @@ Cline支持多种平台：
 
 ### 配置MCP客户端
 
+对于不同的MCP客户端，配置方式可能不同：
+
+#### Cline配置
+Cline的MCP服务器配置是在Cline的交互界面中设置的，不需要外部配置文件。
+
+#### 其他MCP客户端
 在您的MCP客户端配置中添加weather服务器：
 
 ```json
