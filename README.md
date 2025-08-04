@@ -68,7 +68,7 @@ Cline的MCP服务器配置是在Cline的交互界面中设置的，而不是通�
          "command": "uv",
          "args": [
            "--directory",
-           "D:/AgentsDEV/mcp-test/weather",
+           "/path/to/weather/project",
            "run",
            "weather.py"
          ]
@@ -76,6 +76,8 @@ Cline的MCP服务器配置是在Cline的交互界面中设置的，而不是通�
      }
    }
    ```
+
+   **注意**：将 `/path/to/weather/project` 替换为您的实际项目路径。
 
 3. **使用Cline调用Weather功能**：
    - 在Cline中直接询问天气相关问题
