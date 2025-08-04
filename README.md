@@ -32,7 +32,58 @@ uv run weather.py
 
 - Claude Desktop
 - Cursor
+- Cline
 - 其他MCP兼容客户端
+
+### 使用Cline调用Weather服务
+
+[Cline](https://cline.bot/) 是一个开源的AI编程助手，支持MCP协议，可以完美调用我们的weather服务器。
+
+#### 安装Cline
+
+Cline支持多种平台：
+- **VS Code Insiders**: 通过扩展市场安装
+- **Cursor**: 通过扩展市场安装
+- **Windsurf**: 通过扩展市场安装
+
+访问 [Cline官网](https://cline.bot/) 获取详细的安装指南。
+
+#### 配置Cline使用Weather服务器
+
+1. **在Cline中配置MCP服务器**：
+   - 打开Cline设置
+   - 找到MCP服务器配置部分
+   - 添加weather服务器配置
+
+2. **配置示例**：
+   ```json
+   {
+     "mcpServers": {
+       "weather": {
+         "command": "uv",
+         "args": [
+           "--directory",
+           "/path/to/weather/project",
+           "run",
+           "weather.py"
+         ]
+       }
+     }
+   }
+   ```
+
+3. **使用Cline调用Weather功能**：
+   - 在Cline中直接询问天气相关问题
+   - Cline会自动调用相应的weather工具
+   - 支持自然语言查询
+
+#### Cline的优势
+
+- **完全开源**: 100%透明，可审计
+- **客户端架构**: 您的代码永远不会触及服务器
+- **模型无关**: 支持任何AI模型
+- **零信任设计**: 企业级安全标准
+- **实时透明度**: 可以看到每个决策过程
 
 ### 配置MCP客户端
 
@@ -192,6 +243,26 @@ await get_alerts("CA")
 ```python
 await get_weather_flexible(37.3861, -122.0839, "未来3天")
 ```
+
+### 使用Cline的自然语言查询
+
+在Cline中，您可以使用自然语言直接查询天气：
+
+```
+用户: 请帮我查询山景城明天的天气
+Cline: [自动调用 get_weather_flexible 工具并返回结果]
+
+用户: 我想知道8月7日旧金山的天气情况
+Cline: [自动调用 get_forecast_by_date 工具并返回结果]
+
+用户: 加州今天有天气预警吗？
+Cline: [自动调用 get_alerts 工具并返回结果]
+
+用户: 请查询山景城未来一周的天气趋势
+Cline: [自动调用 get_weather_flexible 工具并返回结果]
+```
+
+Cline会根据您的自然语言描述自动选择合适的weather工具并执行查询。
 
 ## ⚠️ 注意事项
 
