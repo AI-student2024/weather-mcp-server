@@ -26,6 +26,36 @@ uv add mcp[cli] httpx
 uv run weather.py
 ```
 
+## 🔌 MCP客户端使用
+
+这个weather服务器可以通过任何支持MCP协议的客户端调用，包括：
+
+- Claude Desktop
+- Cursor
+- 其他MCP兼容客户端
+
+### 配置MCP客户端
+
+在您的MCP客户端配置中添加weather服务器：
+
+```json
+{
+  "mcpServers": {
+    "weather": {
+      "command": "uv",
+      "args": [
+        "--directory",
+        "/path/to/weather/project",
+        "run",
+        "weather.py"
+      ]
+    }
+  }
+}
+```
+
+**注意**：将 `/path/to/weather/project` 替换为您的实际项目路径。
+
 ## 📋 支持的查询格式
 
 ### 1. 完整日期格式
